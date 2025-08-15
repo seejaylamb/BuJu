@@ -1,0 +1,23 @@
+  X  move car to front
+
+  –  tomorrow i am demoing Employee incident reviewer fields
+
+  X  sign up for headway
+	- another day fill out intake form
+
+  X  do a google meet with Michael(maybe) - NO
+
+
+  x  4PM - 5pm michael therapy
+
+  –  jira error loading test execution: Hash MHHY91
+Trace 29051b2783f8466f93af2af65464e69c
+
+
+  –  IDEA for BujU - make background dotted
+ 
+ X  tested EHS-8686 Reviewer Fields on Employee Incident populate the name and job title of Preparer - in UAT
+
+  x  Testing efforts for EHS-15684 - Cannot Delete Inspections - Getting " An Error has Occurred"
+  X  used AI for case creation and test steps creation - coPilot
+

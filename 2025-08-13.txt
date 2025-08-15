@@ -1,0 +1,19 @@
+X  reset stage ISTESTSSO for Zitadel testing
+–  Pragati is handling https://lmsportal.atlassian.net/browse/EHS-8686 during her day Thursday
+
+•  update BuJu to cross off events on click
+X  rerun failed tests after setting stg ISTESTSSO for Zitadel
+X  **Direct Data Access (DDA) UAT Results - EHS-16519 - Patrick "interested in dimensions: Functionality, Security, Performance if we noticed anything). And anything else of note positive or lacking" **
+–  Zitadel Organization Domains (IDs)
+IS3DEV (Development): ehs-dev-with-saml (Uses OneLogin for Authentication)
+
+ISTESTSSO (Stage): ehs-stg (Uses Okta for Authentication)
+
+ISTESTSSO (Production): vector-ehs
+•  let Pragati know in EHS Automation room once the rebuild goes through
+  X  morning meds
+
+  •  log PTO in Paylocity
+
+  o  3pm - 3:30pm Discuss Leave Options w/ Stephanie Castricone
+
