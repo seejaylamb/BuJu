@@ -1,27 +1,38 @@
-  o  tomorrow: drive joey to the lehigh airport and get laptop
+  x  tomorrow: drive joey to the lehigh airport and get laptop
 
-  •  EHS-15684 Delete inspection checklists execute tests
- 
-
-
+  X  EHS-15684 Delete inspection checklists execute tests
+ 	- UAT to Adrian
 
 
- •  flash kali linux onto mini ssd for raspberry pi and or laptop boot use
- 
- •  https://lmsportal.atlassian.net/browse/EHS-11568 - Incident Imports do not close Initial Incident form - developer with fsw on DEV access needed - SNEHA waiting on password reset on dev
+ X  https://lmsportal.atlassian.net/browse/EHS-11568 - Incident Imports do not close Initial Incident form - developer with fsw on DEV access needed - SNEHA waiting on password reset on dev
+	  –  MIKE is helping Sneha in meantime
 
+	
+  X  ? does deployement also kick off a rebuild? - no
 
-  •  https://lmsportal.atlassian.net/browse/EHS-15652 - Inspection Submitted Through Mobile App History Section Not Capturing Number of Deficiencies -> test cases in there can be executed
-
-  •  ? does deployement also kick off a rebuild? - no
-
-  •  send gabe time off in september
+  X  send gabe time off in september
   –  releasing 6.32 next sprint 5
 
 
 
-  o  12pm - 1pm 401K event
+  X  12pm - 1pm 401K event
 
   –  Retirement cj.lamb3rt  Rainbow<3
+
+
+ •  some other day: fix authentication to gitHub for BuJu
+ •  flash kali linux onto mini ssd for raspberry pi and or laptop boot use
+
+  X  EHS-16487 - Leading Zeros in Emp ID exports from summary screens and log reports - finish testing 
+	- set to UAT in Gabe's name
+
+  X  EHS-9793 - execute publishing the schedule inspections that sneha specified - add publish date / time stamp to comment and 		set to UAT
+
+
+ X  https://lmsportal.atlassian.net/browse/EHS-15652 - Inspection Submitted Through Mobile App History Section Not Capturing Number of Deficiencies
+	- test via the API, mobile app ticket gabe will createbut CANNOT be tested via mobile app currently
+
+
+  •  Monday: remind Patrick of his Vacay insights for me - during 1:1
 
 

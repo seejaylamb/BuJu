@@ -1,0 +1,25 @@
+  –  CURRENT SPRINT - EHS PI.25.3.AUG.29 - 5 (09.01) 
+
+>  create defect for error message when changing Emp ID - recreated in TESTAUTOMA - only try recreate on stage
+
+  •  look into test cases from sprint 4 without test cases - update spreadsheet
+	- shared excel with Patrickkkkk
+
+
+
+  –  (?) story https://lmsportal.atlassian.net/browse/EHS-16844 - Maybe CT team can provide a testcase they have for this one? Otherwsise I can't see that it was tested by our team.
+(?) story https://lmsportal.atlassian.net/browse/EHS-16635 - Looks like it skipped right to UAT (no QA). From the subtasks QA planned to have some time with this so would like to followup on this one.
+(?) bug https://lmsportal.atlassian.net/browse/EHS-11568 - Tested by Gabe, and has evidence in the comments, but I think this one needs a testcase one way or another. Lets add a task to this sprint?
+(/) bug https://lmsportal.atlassian.net/browse/EHS-16681 - this looks like a datafix. Doesn't look like QA was involved in it, so marked it as dev-test-testcase-no. Let me know if the team prefers a different label for this type of thing.
+There were a couple others that were justified in other ways (duplicate, cancelled, just needed a link added from the source ticket)
+ 
+
+  X  flip ISTESTSSO to zitadel stage
+  X  close current QA subtasks from Sprint 4
+ 
+  X  add QA subtasks for sprint 5
+  •  work on test plans for sprint 5
+  
+•  if help needed with OKTA or Duo Mobile ask general Vector IT. 
+ 
+

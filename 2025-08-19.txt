@@ -1,0 +1,42 @@
+  –  CURRENT SPRINT - EHS PI.25.3.AUG.29 - 5 (09.01) 
+ 
+ X  log requested time off in paylocity
+	Relog with working 3 days in between
+	- see screenshot in patrick convo working Sept 17th, 18th, and 19th
+
+  X  work on recreating issues, test plans creations before test case creation
+  –  16669 - sunita working on
+  –  15953 - sunita unable to recreate, she asked mike and gabe recreated in dev env
+  >  check tickets from last sprint for tickets tests to automatae - add to spreadsheet
+  X  1pm - 3pm all hands meeting
+  •  email help@vector about both OKTA verify on new phone and Duo Mobile
+
+  –  Your package is arriving today.
+From KEEN RAMPS
+Estimated Delivery
+Tuesday 08/19/2025
+between 3:45 PM - 5:45 PM
+ 
+ >  add test cases for missing ones from last sprint see https://lmsportal.atlassian.net/browse/EHS-16831 
+
+–  These should be the QA Subtasks: "Use AI to Analyze ticket", "Reproduce the issue", "Fill in the Test Plan tab", "Use AI to help with test cases and test steps, write test cases, and associate test execution to this ticket", "Execute Test Execution" 
+  
+** EHS-16838 - New Incident Form fields (Incident Coding:, Involved Employee Name, Involved Employee Title) do not display when Clicking the "Print" Button
+ 	 X  create QA subtasks
+	X  Reproduce issue
+  	X  write test plan
+  
+  
+
+  >  try the vampire chair
+
+  EHS-15849 - Client (Section) is clearing out When job site (Location) is chosen--- ONLY when it is linked to all.
+  X  Use AI and self analyze the ticket to fill out Test Plan tab
+  X  Reproduce the issue (MYR Group on stage and maybe IS3DEV) - REproduced in IS3DEV
+
+  •  create defect for error message when changing Emp ID - recreated in TESTAUTOMA - only try recreate on stage
+
+
+
+SUNITA - 16669 
+15953 - she added test plan and single test case

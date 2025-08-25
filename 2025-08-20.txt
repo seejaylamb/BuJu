@@ -1,0 +1,31 @@
+  –  SUNITA - 16669 - added test cases
+15953 - she added test plan and single test case, started testing this
+
+  X  https://lmsportal.atlassian.net/browse/EHS-8612 this ticket is mentioned in EHS-16838 . its the similar issue and you can check the Test cases for 8612 and link those 16838
+	  –  EHS-8612 - Employee Information Fields Missing on Initial Incident PDF Printout
+ 	 –  EHS-16838 - New Incident Form fields (Incident 	Coding:, Involved Employee Name, Involved Employee Title) do not display when Clicking the "Print" Button
+	- added 3 test cases and setup an employee for special character test
+
+  X  add any test cases created to the spreadsheet automation from last sprint or this sprint - just left import
+
+  X  9:30am - 10am standup
+  X  let gabe and team know - working on Sept 17th, 18th, and 19th - wednesday, thursday, friday
+
+  XX  10am - 11am Backlog refinement - CANCELLED
+
+  X  5pm - 5:45pm Michael therapy
+
+•  try the vampire chair
+  
+X  library today 1pm - ~4pm
+  
+X  PWF back button message from sunita in Tech channel
+  
+X  add test cases for missing ones from last sprint see https://lmsportal.atlassian.net/browse/EHS-16831
+	 - added for EHS-16757 Child form drop down fields are all missing one value
+  
+•  this one on initial incident import testing from last sprint needs a test case(s): EHS-11568 - Incident Imports do not close Initial Incident form  - put into pre-release staging execution: https://lmsportal.atlassian.net/browse/EHS-16948   
+
+  •  Execution - Sprint 25.3.Aug.29 - 4(08.18) Functional - Standalone - go through and move any unexecuted to release exectution for 6.32
+
+
