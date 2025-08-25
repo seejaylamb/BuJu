@@ -30,7 +30,7 @@ X 1pm-1:30pm with Swapnil
 	found client_id and program and I added to Facility ISTEST and rebuilt
 
 
-•  update my tempo time 
+>  update my tempo time 
 
   •  tomorrow: update ISTEST production Asset Profile: 380 with longitude and latitude and fill in client_id and program in Facility profile
 
