@@ -8,3 +8,6 @@ o  9:30am EHS web standup
  
   
   
+  X  setup Git on Windows AOC
+  •  setup git on MBP
+  •  update ISTESTSSO on stage with zitadel login type
