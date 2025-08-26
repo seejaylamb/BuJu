@@ -35,8 +35,36 @@ class BuJoApp:
         # --- Theme state ---
         self.theme_name = DEFAULT_THEME_NAME
         self.colors = THEMES[self.theme_name].copy()
-        # Load saved settings (may update theme)
+        # Load saved settings (may update theme and window)
+        self._settings = {"theme_name": self.theme_name}
         self.load_settings()
+        # Restore window size/position/state if available
+        saved_window = self._settings.get("window", {})
+        width = saved_window.get("width")
+        height = saved_window.get("height")
+        pos_x = saved_window.get("x")
+        pos_y = saved_window.get("y")
+        fullscreen = saved_window.get("fullscreen", False)
+        zoomed = saved_window.get("zoomed", False)
+        try:
+            if isinstance(width, int) and isinstance(height, int) and width > 200 and height > 200:
+                if isinstance(pos_x, int) and isinstance(pos_y, int):
+                    self.root.geometry(f"{width}x{height}+{pos_x}+{pos_y}")
+                else:
+                    self.root.geometry(f"{width}x{height}")
+            # Apply fullscreen/zoomed state last
+            if isinstance(fullscreen, bool) and fullscreen:
+                try:
+                    self.root.attributes("-fullscreen", True)
+                except tk.TclError:
+                    pass
+            elif isinstance(zoomed, bool) and zoomed:
+                try:
+                    self.root.state('zoomed')
+                except tk.TclError:
+                    pass
+        except tk.TclError:
+            pass
         self.root.configure(bg=self.colors["BG"])
 
         # --- Get today's date for the log file ---
@@ -162,17 +190,59 @@ class BuJoApp:
             if saved_theme in THEMES:
                 self.theme_name = saved_theme
                 self.colors = THEMES[self.theme_name].copy()
+            if isinstance(data, dict):
+                self._settings.update(data)
         except (FileNotFoundError, json.JSONDecodeError, OSError):
             # Use defaults if settings missing or invalid
             pass
 
     def save_settings(self):
         try:
+            # Merge current runtime settings
+            self._settings["theme_name"] = self.theme_name
+            # Update window metrics
+            w, h, x, y = self.get_current_window_metrics()
+            fullscreen = self.get_fullscreen_state()
+            zoomed = self.get_zoomed_state()
+            window_payload = {}
+            if w is not None and h is not None:
+                window_payload.update({"width": w, "height": h})
+            if x is not None and y is not None:
+                window_payload.update({"x": x, "y": y})
+            window_payload.update({"fullscreen": fullscreen, "zoomed": zoomed})
+            self._settings["window"] = window_payload
             with open(self.settings_path(), "w", encoding="utf-8") as f:
-                json.dump({"theme_name": self.theme_name}, f)
+                json.dump(self._settings, f)
         except OSError:
             # Ignore write errors silently
             pass
+
+    def get_current_window_metrics(self):
+        try:
+            self.root.update_idletasks()
+            geo = self.root.winfo_geometry()  # e.g., "600x700+100+100"
+            parts = geo.split("+")
+            size_part = parts[0]
+            w_str, h_str = size_part.split("x")
+            w = int(w_str)
+            h = int(h_str)
+            x = int(parts[1]) if len(parts) > 1 else self.root.winfo_x()
+            y = int(parts[2]) if len(parts) > 2 else self.root.winfo_y()
+            return w, h, x, y
+        except Exception:
+            return None, None, None, None
+
+    def get_fullscreen_state(self) -> bool:
+        try:
+            return bool(self.root.attributes("-fullscreen"))
+        except tk.TclError:
+            return False
+
+    def get_zoomed_state(self) -> bool:
+        try:
+            return self.root.state() == 'zoomed'
+        except tk.TclError:
+            return False
 
     def add_item(self, prefix):
         """Asks user for input and adds a new item to the text widget."""
@@ -225,6 +295,8 @@ class BuJoApp:
 
     def on_closing(self):
         """Handles the window closing event."""
+        # Save current size and theme before exit
+        self.save_settings()
         self.save_log()
         self.root.destroy()
 
