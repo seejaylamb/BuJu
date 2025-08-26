@@ -1,0 +1,34 @@
+  X  unsubscribed from google AI Ultra, I have it till Sept. 6th
+ 
+X  update ISTESTSSO on stage with zitadel login type
+  X  re-running zitadel tests from PRD last night - passed
+  
+o  7:30AM walk rainbow - in one hour
+
+o  8:30 am Cybage SU
+  
+
+o  9AM Automation SU
+  –  ashitosh to look into failed french test on master - told him in EHS Automation this morning
+
+o  10:30AM in office Ed Berger's - Leave right after automation meeting
+
+
+EHS-16891 Observation Details Log Report Incorrect Total Count
+---------------------------------------------------------------------------------------
+  •  Write test case(s) and associate to standalone test execution with help of AI
+  •  Execute Test Cases (AI help..?)
+  •  Add test cases to EHS Automation spreadsheet with any notes necessary
+
+
+•  work with DataML (Direct Data Access) team
+     –  Jodi: The stakeholder review (Go/No-Go) for customer   Alpha testing is Friday. We will need to summarize our testing and update the presentation by EOD Thursday.
+   –  I do not know what site to give them for Business Group and Region turned on
+
+
+ •  update my tempo time - EoD 
+
+
+
+  –  ? buy usb c to usb traditional converters?
+

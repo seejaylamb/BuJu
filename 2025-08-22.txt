@@ -1,4 +1,4 @@
-  •  EHS-16700 Vector DB Updates - Courses Updates and Sunsetting
+  >  EHS-16700 Vector DB Updates - Courses Updates and Sunsetting
 	- not sure if it needs test cases but try this one today
 
 
@@ -6,8 +6,7 @@
   X  9:30am EHS standup
   X  12pm - 1pm EHS Refinement 
 
-  X  2pm - 2:20 pm aly
-	  X  fill out electronic pre-check before Aly appointment
+
 
 
   X  clone ticket for automation and put into thFis sprint
@@ -16,27 +15,32 @@
  
 
  EHS-16891 Observation Details Log Report Incorrect Total Count
-  > add qa subtasks
+  X add qa subtasks
   >  add test plan
   > add test case(s)
   > execute test cases
 
-
+X spoke with Pranjali Karanjkar and Swapnil and more research
+  - tracked in EHS-16519 EHS UAT for Direct Data Access - Round 2 August 11 - 15
 
 X  get back to Pranjali on her question: We are not able to configure below with respect to inspection form. Can you please share inputs here?
 client_id,due_date,,asset_category,asset_equipment_type,asset_make,asset_model,asset_year,asset_longitude,asset_latitude,inspection_subpart,inspection_topic,closed_by_employee_id,closed_by_employee_name,closed_by_employee_title,report_close_date,report_close_time,facility_category,facility_type,client,subclient,program
   
 X 1pm-1:30pm with Swapnil
 	found client_id and program and I added to Facility ISTEST and rebuilt
+  
+  X  2pm - 2:20 pm aly
+	  X  fill out electronic pre-check before Aly appointment
 
 
 >  update my tempo time 
 
-  •  tomorrow: update ISTEST production Asset Profile: 380 with longitude and latitude and fill in client_id and program in Facility profile
+  X tomorrow: update ISTEST production Asset Profile: 380 with longitude and latitude and fill in client_id and program in Facility profile
+    I assume whats her name already did
 
 
-  •  this wknd: fix the button's whiting out in BuJu
-  •  this wknd: see if pending $1 transactions are in cvfcu so I can use to pay off $1,800 + of wells fargo credit card
+  X  this wknd: fix the button's whiting out in BuJu - it's a defect on mac OS on windows 11 looks great 
+  X  this wknd: see if pending $1 transactions are in cvfcu so I can use to pay off $1,800 + of wells fargo credit card
 
 
 

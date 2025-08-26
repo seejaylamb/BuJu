@@ -1,13 +1,59 @@
-•  take morning meds - half antipychotic included
+X  answered some questions from Narchinh (Gnar-SEEN) Poul on the Program label for Facility - this morning
 
-o  8:30 am cybage standup
-o  9am EHS Automation standup
-o  9:30am EHS web standup
+X  take morning meds - half antipychotic included
+	- and took 
 
-  •  update my tempo time 
+X  8:30 am cybage standup
+X  9am EHS Automation standup
+
+X  9:30am EHS web standup
+  •  Tomorrow: ask TEAM about testing EHS-16700 Vector DB Updates - Courses Updates and Sunsetting  
+	Gabe's ticket so might have to wait for him
+- Mike on Dad taxi - crazy taxi
+
+  >  update my tempo time 
  
-  
-  
   X  setup Git on Windows AOC
-  •  setup git on MBP
-  •  update ISTESTSSO on stage with zitadel login type
+  X  setup git on MBP
+  >  update ISTESTSSO on stage with zitadel login type
+
+ EHS-16891 Observation Details Log Report Incorrect Total Count
+  X  Reproduce Issue on ISTEST or Client Site on STAGE
+  X  Fill out test plan tab, with help of AI
+  •  Write test case(s) and associate to standalone test execution with help of AI
+  •  Execute Test Cases (AI help..?)
+  •  Add test cases to EHS Automation spreadsheet with any notes necessary
+
+  X  try Rovo Chat - better then Co-Pilot!
+ 
+  X  3pm 1:1 CJ //\\ Patrick
+	X  ask patrick: is it ok if I bring my windows laptop or should I bring my macbook pro work one? - Decided just bring MBP
+  –  also sunita's tickets are not showing from the QA column
+- working on UAT on DDA DataML team, Amazon Athena starting in morning sounds like they will give client access then
+
+  •  Tomorrow: work with DataML (Direct Data Access) team
+  –  jodi mentioned they are trying to have UAT done by thursday end of day latest
+  –  from Jodi: The stakeholder review (Go/No-Go) for customer Alpha testing is Friday. We will need to summarize our testing and update the presentation by EOD Thursday.
+	X I tried to setup ISTEST on stage with all four layers of hierarchy but it seems to totally break the Inspection Form
+
+------------------------------------------------------------------------------
+•  wipe down rainbow with dog wipes
+
+  •  ~45 minutes most to try to update the 0 events in BuJu to cross out when double clicked - prob can just add to the existing code for the *
+
+  –  ? video editing on windows 11?
+  –  ? warrenty on TCL phone or does it need new battery? - can prob just contact TCL support
+  •  check personal GitHub that Buju is getting updated
+
+
+  •  watch Click Click - Skate Photography Documentary Polar's vid
+ 
+ •  move desk to window 
+  •  bring up other desk from basement... or desk from ethans room
+  •  update ISTEST on stage (publish with Business Group and Region enabled) for Pranjali & Narshinh
+  •  post in the EHS QA-DataML room when done setup
+  •  check on gemini Ultra subscription pay day
+  –  Firefox has a Perfomance Tool that looks neat
+  –  the search for animal chin
+
+
