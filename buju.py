@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import font, simpledialog, scrolledtext
 import os
+import json
 from datetime import datetime
 
 # --- Constants ---
@@ -8,7 +9,17 @@ WINDOW_TITLE = "BuJu - Your Digital Journal"
 WINDOW_GEOMETRY = "600x700"
 APP_FONT = "Helvetica"
 FONT_SIZES = {"H1": 22, "P": 18}
-COLORS = {"BG": "#fdfdfd", "FG": "#2c3e50", "ACCENT": "#3498db"}
+
+# --- Themes ---
+# Each theme provides background, foreground, and accent colors
+THEMES = {
+    "Light": {"BG": "#fdfdfd", "FG": "#2c3e50", "ACCENT": "#3498db", "TEXT_BG": "#ffffff"},
+    "Dark": {"BG": "#1f2933", "FG": "#e5e7eb", "ACCENT": "#10b981", "TEXT_BG": "#111827"},
+    "Solarized": {"BG": "#fdf6e3", "FG": "#586e75", "ACCENT": "#b58900", "TEXT_BG": "#fffdf5"},
+    "Forest": {"BG": "#0b3d2e", "FG": "#e6f4ea", "ACCENT": "#2ecc71", "TEXT_BG": "#052e22"},
+}
+DEFAULT_THEME_NAME = "Light"
+SETTINGS_FILENAME = "buju_settings.json"
 
 # --- Core Task Symbols ---
 TASK = "•"
@@ -21,7 +32,12 @@ class BuJoApp:
         self.root = root
         self.root.title(WINDOW_TITLE)
         self.root.geometry(WINDOW_GEOMETRY)
-        self.root.configure(bg=COLORS["BG"])
+        # --- Theme state ---
+        self.theme_name = DEFAULT_THEME_NAME
+        self.colors = THEMES[self.theme_name].copy()
+        # Load saved settings (may update theme)
+        self.load_settings()
+        self.root.configure(bg=self.colors["BG"])
 
         # --- Get today's date for the log file ---
         self.today_str = datetime.now().strftime("%Y-%m-%d")
@@ -33,6 +49,7 @@ class BuJoApp:
 
         # --- Build the UI ---
         self.create_widgets()
+        self.build_menu()
         
         # --- Load existing data ---
         self.load_log()
@@ -42,21 +59,21 @@ class BuJoApp:
 
     def create_widgets(self):
         # --- Header Frame ---
-        header_frame = tk.Frame(self.root, bg=COLORS["BG"])
-        header_frame.pack(pady=10, fill="x", padx=20)
+        self.header_frame = tk.Frame(self.root, bg=self.colors["BG"])
+        self.header_frame.pack(pady=10, fill="x", padx=20)
         
-        date_label = tk.Label(
-            header_frame, 
+        self.date_label = tk.Label(
+            self.header_frame, 
             text=datetime.now().strftime("%A, %B %d, %Y"), 
             font=self.font_h1, 
-            bg=COLORS["BG"], 
-            fg=COLORS["FG"]
+            bg=self.colors["BG"], 
+            fg=self.colors["FG"]
         )
-        date_label.pack()
+        self.date_label.pack()
 
         # --- Controls Frame ---
-        controls_frame = tk.Frame(self.root, bg=COLORS["BG"])
-        controls_frame.pack(pady=5, fill="x", padx=20)
+        self.controls_frame = tk.Frame(self.root, bg=self.colors["BG"])
+        self.controls_frame.pack(pady=5, fill="x", padx=20)
 
         buttons = [
             ("Add Task", lambda: self.add_item(TASK)),
@@ -64,39 +81,98 @@ class BuJoApp:
             ("Add Event", lambda: self.add_item(EVENT))
         ]
         
+        self.action_buttons = []
         for text, command in buttons:
             btn = tk.Button(
-                controls_frame, 
+                self.controls_frame, 
                 text=text, 
                 command=command, 
                 font=(APP_FONT, 15), 
-                bg=COLORS["ACCENT"], 
+                bg=self.colors["ACCENT"], 
                 fg="white", 
-                activebackground=COLORS["ACCENT"],  # Keep color when active
-                activeforeground="white",           # Keep text white when active
+                activebackground=self.colors["ACCENT"],
+                activeforeground="white",
                 relief="flat", 
                 padx=10,
-                takefocus=False  # Prevent buttons from taking focus
+                takefocus=False
             )
             btn.pack(side="left", padx=5)
+            self.action_buttons.append(btn)
 
         # --- Main Content Area (ScrolledText with word wrap) ---
         self.text_widget = scrolledtext.ScrolledText(
             self.root,
             font=self.font_p,
-            bg="white",
-            fg=COLORS["FG"],
+            bg=self.colors["TEXT_BG"],
+            fg=self.colors["FG"],
             wrap=tk.WORD,  # Enable word wrapping
             borderwidth=0,
             highlightthickness=0,
             padx=10,
             pady=10,
-            insertbackground=COLORS["FG"]  # Set cursor color
+            insertbackground=self.colors["FG"]
         )
         self.text_widget.pack(pady=10, padx=20, fill="both", expand=True)
         
         # --- Bind double-click to toggle task state ---
         self.text_widget.bind("<Double-1>", self.toggle_task_state)
+
+    def build_menu(self):
+        menubar = tk.Menu(self.root)
+        # Theme menu
+        theme_menu = tk.Menu(menubar, tearoff=0)
+        for theme_name in THEMES.keys():
+            theme_menu.add_command(label=theme_name, command=lambda n=theme_name: self.set_theme(n))
+        menubar.add_cascade(label="Theme", menu=theme_menu)
+        self.root.config(menu=menubar)
+
+    def set_theme(self, theme_name: str):
+        if theme_name not in THEMES:
+            return
+        self.theme_name = theme_name
+        self.colors = THEMES[self.theme_name].copy()
+        self.apply_theme()
+        self.save_settings()
+
+    def apply_theme(self):
+        # Window background
+        self.root.configure(bg=self.colors["BG"])
+
+        # Header
+        self.header_frame.configure(bg=self.colors["BG"])
+        self.date_label.configure(bg=self.colors["BG"], fg=self.colors["FG"])
+
+        # Controls and buttons
+        self.controls_frame.configure(bg=self.colors["BG"])
+        for btn in self.action_buttons:
+            btn.configure(bg=self.colors["ACCENT"], activebackground=self.colors["ACCENT"], fg="white", activeforeground="white")
+
+        # Text area and its colors
+        self.text_widget.configure(bg=self.colors["TEXT_BG"], fg=self.colors["FG"], insertbackground=self.colors["FG"])
+
+    def settings_path(self) -> str:
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        return os.path.join(base_dir, SETTINGS_FILENAME)
+
+    def load_settings(self):
+        try:
+            with open(self.settings_path(), "r", encoding="utf-8") as f:
+                data = json.load(f)
+            saved_theme = data.get("theme_name")
+            if saved_theme in THEMES:
+                self.theme_name = saved_theme
+                self.colors = THEMES[self.theme_name].copy()
+        except (FileNotFoundError, json.JSONDecodeError, OSError):
+            # Use defaults if settings missing or invalid
+            pass
+
+    def save_settings(self):
+        try:
+            with open(self.settings_path(), "w", encoding="utf-8") as f:
+                json.dump({"theme_name": self.theme_name}, f)
+        except OSError:
+            # Ignore write errors silently
+            pass
 
     def add_item(self, prefix):
         """Asks user for input and adds a new item to the text widget."""
